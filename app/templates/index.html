@@ -1,4 +1,17 @@
 {% extends 'base.html'%}
-{%block%}
-<h1>BLOG</h1>
-{%endblock%}
+{% block content %}
+<div class="page-header">
+    <p>Does it work????? </p>
+</div>
+<h2 class="text-center">Quote</h2>
+<div class="container jumbotron">
+    <div class="site-heading">
+        <span class="subheading"><i class="fas fa-quote-left"></i> <em>{{quotes.quote}}</em> <i
+                class="fas fa-quote-right"></i></span>
+        <h2>{{quotes.author}}</h2>
+    </div>
+</div>
+
+
+
+{% endblock %}
