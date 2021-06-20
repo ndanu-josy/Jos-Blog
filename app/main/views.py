@@ -51,4 +51,23 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))    
-           
+
+@main.route('/blog/newBlog', method=['GET', 'POST'])
+@login_required
+def newBlog():
+    blogForm = BlogForm()
+    if blogForm.validate_on_submit():
+        titleBlog=blogForm.blogTitle.data
+        description = blogForm.blogDescription.data
+        newBlog = Blog(title_blog=titleBlog, description=description, user= current_user)
+        newBlog.saveBlog()
+        return redirect(url_for('main.allBlogs'))
+    title = 'New Blog'
+    return render_template('newBlog.html', title=title, blog_form=blogForm)
+
+@main.route('/blog/allblogs', methods=['GET', 'POST'])
+@login_required
+@login_required
+def allBlogs():
+    blogs = Blog.getallBlogs()
+    return render_template('blogs.html', blogs=blogs)
