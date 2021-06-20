@@ -71,3 +71,29 @@ def newBlog():
 def allBlogs():
     blogs = Blog.getallBlogs()
     return render_template('blogs.html', blogs=blogs)
+
+@main.route('/deleteblog/<int:id>', methods=['GET', 'POST'])
+@login_required
+def deleteBlog(id):
+    blog = Blog.query.get_or_404(id)
+    db.session.delete(blog)
+    db.session.commit()
+    return redirect(url_for('main.allBlogs'))   
+
+
+@main.route('/update/<int:id>', methods=['GET', 'POST'])
+@login_required
+def updateBlog(id):
+    blog = Blog.query.get_or_404(id)
+    form = BlogForm()
+    if form.validate_on_submit():
+        blog.title_blog = form.blogTitle.data
+        blog.description = form.blogDescription.data
+        db.session.add(blog)
+        db.session.commit()
+
+        return redirect(url_for('main.allBlogs'))
+    elif request.method == 'GET':
+        form.blogTitle.data = blog.title_blog
+        form.blogDescription.data = blog.description
+    return render_template('updateBlog.html', form=form)    
