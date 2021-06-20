@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+{% block content %}
+<div class="container" style="font-size: 20px; font-family: 'Merienda', cursive;  padding-top: 40px;">
+<div class="row">
+<div class="col-md-12 mt-3 p-5">
+    <h3 class="mt-3 pb-3 text-center">All blogs</h3>
+    <hr>
+    {% for blog in blogs %}
+    <p class="text-default">{{blog.title_blog}}</p>
+    <p>{{blog.description}}</p>
+    <p class="text-danger">By: {{blog.user.username}}</p>
+    <div class="row">
+        <div class="col">
+            <a href="{{url_for('main.newComment', id=blog.id)}}"><i class="fas fa-comment fa-fw pr-3"></i></a>
+            {% if blog.user == current_user%}
+            <a href="{{url_for('main.updateBlog', id=blog.id)}}"><i class="fas fa-pen pr-3"></i></a>
+            <a href="{{url_for('main.deleteBlog', id = blog.id)}}"><i class="fas fa-trash text-danger"></i></a>
+            {% endif %}
+        </div>
+    </div>
+    <hr>
+
+    {%endfor%}
+    
+</div>
+</div>
+</div>
+
+{% endblock%}

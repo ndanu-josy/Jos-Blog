@@ -52,7 +52,7 @@ def update_pic(uname):
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))    
 
-@main.route('/blog/newBlog', method=['GET', 'POST'])
+@main.route('/blog/newBlog', methods=['GET', 'POST'])
 @login_required
 def newBlog():
     blogForm = BlogForm()
@@ -109,7 +109,7 @@ def newComment(id):
         comment = comment_form.comment.data
         new_comment = Comment(blog_id=id, comment=comment, user=current_user)
         new_comment.saveComment()
-    return render_template('newComment.html', blog=blog, blog_comments=blogComments, comment_form=comment_form)
+    return render_template('newCOmment.html', blog=blog, blog_comments=blogComments, comment_form=comment_form)
 
 @main.route('/delete/<int:id>', methods=['GET', 'POST'])
 @login_required
