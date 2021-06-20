@@ -109,7 +109,7 @@ def newComment(id):
         comment = comment_form.comment.data
         new_comment = Comment(blog_id=id, comment=comment, user=current_user)
         new_comment.saveComment()
-    return render_template('newCOmment.html', blog=blog, blog_comments=blogComments, comment_form=comment_form)
+    return render_template('comments.html', blog=blog, blog_comments=blogComments, comment_form=comment_form)
 
 @main.route('/delete/<int:id>', methods=['GET', 'POST'])
 @login_required
