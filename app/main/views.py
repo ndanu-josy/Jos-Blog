@@ -67,7 +67,6 @@ def newBlog():
 
 @main.route('/blog/allblogs', methods=['GET', 'POST'])
 @login_required
-@login_required
 def allBlogs():
     blogs = Blog.getallBlogs()
     return render_template('blogs.html', blogs=blogs)
