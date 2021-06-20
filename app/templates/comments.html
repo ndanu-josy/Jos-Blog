@@ -2,6 +2,7 @@
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content %}
+
 <div class="container" style="font-size: 20px; font-family: 'Merienda', cursive;  padding-top: 40px;">
 <div class="row">
 <div class="col-md-4 mt-3 p-5"> 
@@ -27,7 +28,7 @@
     <p>{{comment.posted.strftime("%Y-%m-%d")}}</p> 
     <p> By: {{comment.user.username}}</p> 
    
-    <a href="{{url_for('main.deleteComment',id = comment.id)}}"><i class="fas fa-trash text-danger"></i>delete</a>
+    <a href="{{url_for('main.deleteComment',id = comment.id)}}">delete</a>
     <hr>
     
 

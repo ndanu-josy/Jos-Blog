@@ -1,4 +1,4 @@
 Hello {{user.username}}
-Welcome to Blogger Diaries,
+We are the Blogger Diaries,
 We are very excited to have you us our member. Blogger Diaries is a safe place for all software developers to share ideas. 
 You going to love it here.
