@@ -1,10 +1,11 @@
 {% extends 'base.html'%}
 {% block content %}
-<div class="page-header">
-    <p>Does it work????? </p>
-</div>
-<h2 class="text-center">Quote</h2>
-<div class="container jumbotron">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+
+<h2 class="text-center page-header" style="color: #03071e">Quote of the Moment</h2>
+<div class="container jumbotron text-center"  style="background-image: url('https://images.pexels.com/photos/7976/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500'); 
+background-repeat: no-repeat; background-position: center center; background-size: cover; height: 400px;  font-family: 'Architects Daughter', cursive; font-size:20pt; color:#03071e">
     <div class="site-heading">
         <span class="subheading"><i class="fas fa-quote-left"></i> <em>{{quotes.quote}}</em> <i
                 class="fas fa-quote-right"></i></span>
