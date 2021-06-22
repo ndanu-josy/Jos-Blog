@@ -34,7 +34,7 @@ In your terminal, run the following commands;
  then run ./start.sh
 
 # Live Site 
-View [live]()
+View [live](https://blogger-diaries.herokuapp.com/)
 
 ## Technologies Used
 1. Python 3.8
