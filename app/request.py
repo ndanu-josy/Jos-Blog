@@ -1,9 +1,5 @@
 import urllib.request,json
 from .models import Quote
-
-# Getting the movie base url
-
-
 def getQuotes(): 
     """
     Function to consume the url and return quotes
@@ -12,9 +8,7 @@ def getQuotes():
     with urllib.request.urlopen(QUOTE_API_URL) as url:
         quotesData = url.read()
         qoutesResponse = json.loads(quotesData)
-        # print(quotesResponse)
-
-       
+        # print(quotesResponse)       
         id = qoutesResponse.get('id')
         author = qoutesResponse.get('author')
         quote = qoutesResponse.get('quote')
